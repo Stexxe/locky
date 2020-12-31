@@ -1,0 +1,22 @@
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "{{ .KotlinVersion }}"
+    id "application"
+}
+
+group "org.example"
+version "1.0-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+
+mainClassName = "{{ .MainClass }}"
+
+ext.ktor_version = "{{ .KtorVersion }}"
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation "io.ktor:ktor-server-core:$ktor_version"
+    implementation "io.ktor:ktor-server-cio:$ktor_version"
+    implementation "ch.qos.logback:logback-classic:1.2.3"
+}
